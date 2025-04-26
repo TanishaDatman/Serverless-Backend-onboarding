@@ -1,0 +1,20 @@
+{
+  "name": "backend-again",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "mysql2": "^3.14.0",
+    "serverless": "^4.14.1",
+    "serverless-offline": "^14.4.0",
+    "typeorm": "^0.3.22"
+  }
+}
