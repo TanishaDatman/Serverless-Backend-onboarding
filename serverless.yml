@@ -82,14 +82,14 @@ functions:
     handler: handler.createBusiness
     events:
       - http:
-          path: api/business-detail
+          path: api/business-details
           method: post
 
   getBusiness:
     handler: handler.getBusiness
     events:
       - http:
-          path: api/business-detail/{id}
+          path: api/business-details/{id}
           method: get
 
   createBankDetails:
