@@ -1,59 +1,39 @@
-
-const { initDatabase, createAppDataSource, initializeDataSource } = require('../db/dbconn');
-const { Company } = require('../entity/companyEntity');
+const { Company } = require("../entity/companyEntity");
+const { createAppDataSource } = require("../db/dbconn");
 
 // Create Company Details
-const createCompanyDetails = async (data) => {
-  const { 
-    companyType, organizationtype, companyregisternumber, bussinessLegalname,
-    email, phoneno, url, postcode, address_line_1, address_line_2,
-    town, county, country, flag
-  } = data;
-
-  console.log('Initializing database...');
-  await initDatabase();
-  console.log('Initializing TypeORM data source...');
-  await initializeDataSource();
-
+exports.createCompanyDetails = async (data) => {
   const AppDataSource = createAppDataSource();
   const companyDetailsRepo = AppDataSource.getRepository(Company);
 
-  try {
-    console.log('Creating new company details...');
-    const newCompanyDetails = companyDetailsRepo.create({
-      companyType, organizationtype, companyregisternumber, bussinessLegalname,
-      email, phoneno, url, postcode, address_line_1, address_line_2,
-      town, county, country, flag
-    });
+  const newCompanyDetails = companyDetailsRepo.create({
+    companyType: data.companyType,
+    organizationtype: data.organizationtype,
+    companyregisternumber: data.companyregisternumber,
+    bussinessLegalname: data.bussinessLegalname,
+    email: data.email,
+    phoneno: data.phoneno,
+    url: data.url,
+    postcode: data.postcode,
+    address_line_1: data.address_line_1,
+    address_line_2: data.address_line_2,
+    town: data.town,
+    county: data.county,
+    country: data.country,
+    flag: data.flag,
+  });
 
-    await companyDetailsRepo.save(newCompanyDetails);
+  await companyDetailsRepo.save(newCompanyDetails);
 
-    return newCompanyDetails;
-  } catch (error) {
-    console.error('Error creating company details:', error);
-    throw new Error('Error creating company details');
-  }
+  return newCompanyDetails;
 };
 
 // Get Company Details by ID
-const getCompanyDetails = async (id) => {
-  console.log('Initializing database...');
-  await initDatabase();
-  console.log('Initializing TypeORM data source...');
-  await initializeDataSource();
-
+exports.getCompanyDetails = async (id) => {
   const AppDataSource = createAppDataSource();
   const companyDetailsRepo = AppDataSource.getRepository(Company);
 
-  try {
-    console.log(`Fetching company details with ID: ${id}`);
-    const companyDetails = await companyDetailsRepo.findOneBy({ id });
-    console.log('companyDetails=====>', companyDetails);
-    return companyDetails;
-  } catch (error) {
-    console.error('Error fetching company details:', error);
-    throw new Error('Error fetching company details');
-  }
-};
+  const companyDetails = await companyDetailsRepo.findOneBy({ id });
 
-module.exports = { createCompanyDetails, getCompanyDetails };
+  return companyDetails;
+};

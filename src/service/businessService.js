@@ -1,71 +1,39 @@
-const { initDatabase, createAppDataSource, initializeDataSource } = require('../db/dbconn');
-const { Business } = require('../entity/businessEntity');
+const { Business } = require("../entity/businessEntity");
+const { createAppDataSource } = require("../db/dbconn");
 
 // Create Business
-const createBusiness = async (data) => {
-  // Destructure the required fields from the input data
-  const { title, first_name, last_name, dob, nationality, emailId, phnno, postcode, houseno, street, town_city, county, country, flag } = data;
-
-  // Ensure the database exists first
-  console.log('Initializing database...');
-  await initDatabase();  // Create database if not exists
-
-  // Initialize DataSource
-  console.log('Initializing TypeORM data source...');
-  await initializeDataSource();  // Ensure the data source is properly initialized
-
+exports.createBusiness = async (data) => {
   const AppDataSource = createAppDataSource();
   const businessRepo = AppDataSource.getRepository(Business);
 
-  try {
-    console.log('Creating new business...');
-    const newBusiness = businessRepo.create({
-      title,
-      first_name,
-      last_name,
-      dob,
-      nationality,
-      emailId,
-      phnno,
-      postcode,
-      houseno,
-      street,
-      town_city,
-      county,
-      country,
-      flag
-    });
-    await businessRepo.save(newBusiness);
+  const business = businessRepo.create({
+    title: data.title,
+    first_name: data.first_name,
+    last_name: data.last_name,
+    dob: data.dob,
+    nationality: data.nationality,
+    emailId: data.emailId,
+    phnno: data.phnno,
+    postcode: data.postcode,
+    houseno: data.houseno,
+    street: data.street,
+    town_city: data.town_city,
+    county: data.county,
+    country: data.country,
+    flag: data.flag,
+  });
 
-    return newBusiness;
-  } catch (error) {
-    console.error('Error creating business:', error);
-    throw new Error('Error creating business');
-  }
+  await businessRepo.save(business);
+
+  return business;
 };
 
 // Get Business by ID
-const getBusiness = async (id) => {
-    // Step 1: Ensure DB exists
-    console.log('Initializing database...');
-    await initDatabase();
-  
-    // Step 2: Initialize the data source
-    console.log('Initializing TypeORM data source...');
-    await initializeDataSource();
-  
-    // Step 3: Now safely create AppDataSource
-    const AppDataSource = createAppDataSource();
-    const businessRepo = AppDataSource.getRepository(Business);
-  
-    try {
-      console.log(`Fetching business with ID: ${id}`);
-      const business = await businessRepo.findOneBy({ id });
-      console.log("business======>", business);
-      return business;
-    } catch (error) {
-      console.error('Error fetching business:', error);
-      throw new Error('Error fetching business');
-    }
-  };
-  module.exports = { createBusiness, getBusiness };
+exports.getBusiness = async (id) => {
+  const AppDataSource = createAppDataSource();
+  const businessRepo = AppDataSource.getRepository(Business);
+
+  const business = await businessRepo.findOneBy({ id });
+
+  return business;
+};
