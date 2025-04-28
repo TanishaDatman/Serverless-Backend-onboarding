@@ -256,54 +256,54 @@ const { createTradingDetails, getTradingDetails } = require('./src/service/tradi
 
 // --- Business Handlers ---
 
-module.exports.createBusiness = async (event) => {
-  try {
-    const { title, first_name, last_name, dob, nationality, emailId, phnno, postcode, houseno, street, town_city, county, country, flag } = JSON.parse(event.body);
+// module.exports.createBusiness = async (event) => {
+//   try {
+//     const { title, first_name, last_name, dob, nationality, emailId, phnno, postcode, houseno, street, town_city, county, country, flag } = JSON.parse(event.body);
 
-    const newBusiness = await createBusiness({
-      title, first_name, last_name, dob, nationality, emailId, phnno, postcode, houseno, street, town_city, county, country, flag
-    });
+//     const newBusiness = await createBusiness({
+//       title, first_name, last_name, dob, nationality, emailId, phnno, postcode, houseno, street, town_city, county, country, flag
+//     });
 
-    return {
-      statusCode: 201,
-      body: JSON.stringify({
-        message: 'Business created successfully',
-        data: newBusiness,
-      }),
-    };
-  } catch (error) {
-    console.error('Error creating business:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Internal server error' }),
-    };
-  }
-};
+//     return {
+//       statusCode: 201,
+//       body: JSON.stringify({
+//         message: 'Business created successfully',
+//         data: newBusiness,
+//       }),
+//     };
+//   } catch (error) {
+//     console.error('Error creating business:', error);
+//     return {
+//       statusCode: 500,
+//       body: JSON.stringify({ error: 'Internal server error' }),
+//     };
+//   }
+// };
 
-module.exports.getBusiness = async (event) => {
-  try {
-    const { id } = event.pathParameters;
-    const business = await getBusiness(id);
+// module.exports.getBusiness = async (event) => {
+//   try {
+//     const { id } = event.pathParameters;
+//     const business = await getBusiness(id);
 
-    if (!business) {
-      return {
-        statusCode: 404,
-        body: JSON.stringify({ error: 'Business not found' }),
-      };
-    }
+//     if (!business) {
+//       return {
+//         statusCode: 404,
+//         body: JSON.stringify({ error: 'Business not found' }),
+//       };
+//     }
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ data: business }),
-    };
-  } catch (error) {
-    console.error('Error fetching business:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Internal server error' }),
-    };
-  }
-};
+//     return {
+//       statusCode: 200,
+//       body: JSON.stringify({ data: business }),
+//     };
+//   } catch (error) {
+//     console.error('Error fetching business:', error);
+//     return {
+//       statusCode: 500,
+//       body: JSON.stringify({ error: 'Internal server error' }),
+//     };
+//   }
+// };
 
 // --- Bank Details Handlers ---
 

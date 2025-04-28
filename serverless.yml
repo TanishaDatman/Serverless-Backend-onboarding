@@ -77,16 +77,17 @@
 
 
 service: backend-api
+
 functions:
   createBusiness:
-    handler: handler.createBusiness
+    handler: src/service/businessService.createBusiness
     events:
       - http:
           path: api/business-details
           method: post
 
   getBusiness:
-    handler: handler.getBusiness
+    handler: src/service/businessService.getBusiness
     events:
       - http:
           path: api/business-details/{id}

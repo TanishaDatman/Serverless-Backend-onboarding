@@ -7,22 +7,22 @@
       "service": "backend-api",
       "functions": {
         "createBusiness": {
-          "handler": "handler.createBusiness",
+          "handler": "src/service/businessService.createBusiness",
           "events": [
             {
               "http": {
-                "path": "api/business-detail",
+                "path": "api/business-details",
                 "method": "post"
               }
             }
           ]
         },
         "getBusiness": {
-          "handler": "handler.getBusiness",
+          "handler": "src/service/businessService.getBusiness",
           "events": [
             {
               "http": {
-                "path": "api/business-detail/{id}",
+                "path": "api/business-details/{id}",
                 "method": "get"
               }
             }
@@ -94,16 +94,18 @@
             }
           ]
         }
-      }
+      },
+      "plugins": [
+        "serverless-offline"
+      ]
     },
     "error": {
       "message": "request to https://core.serverless.com/api/bff/ failed, reason: ",
       "stack": "Error: request to https://core.serverless.com/api/bff/ failed, reason: \n    at Authentication.getClientDataFromAccessKey (file:///Users/tanisha/.serverless/releases/4.14.1/package/dist/sf-core.js:559:18321)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async Authentication.getAuthenticatedData (file:///Users/tanisha/.serverless/releases/4.14.1/package/dist/sf-core.js:559:3689)\n    at async Authentication.authenticate (file:///Users/tanisha/.serverless/releases/4.14.1/package/dist/sf-core.js:559:21808)\n    at async TraditionalRunner.resolveVariablesAndAuthenticate (file:///Users/tanisha/.serverless/releases/4.14.1/package/dist/sf-core.js:563:2377)\n    at async TraditionalRunner.run (file:///Users/tanisha/.serverless/releases/4.14.1/package/dist/sf-core.js:1136:27896)\n    at async route (file:///Users/tanisha/.serverless/releases/4.14.1/package/dist/sf-core.js:1167:2779)\n    at async Object.run (file:///Users/tanisha/.serverless/releases/4.14.1/package/dist/sf-core.js:1168:3661)\n    at async run2 (file:///Users/tanisha/.serverless/releases/4.14.1/package/dist/sf-core.js:1168:4815)"
     },
-    "serviceRawFile": "# service: backend-api\n\n# provider:\n#   name: aws\n#   runtime: nodejs14.x\n#   stage: dev\n#   region: us-east-1\n\n# functions:\n#   createBusiness:\n#     handler: handler.createBusiness  # Ensure this is pointing to your handler.js\n#     events:\n#       - http:\n#           path: api/business-detail\n#           method: post\n\n#   getBusiness:\n#     handler: handler.getBusiness  # Ensure this is pointing to your handler.js\n#     events:\n#       - http:\n#           path: api/business-detail/{id}\n#           method: get\n\n# plugins:\n#   - serverless-offline\n\n\n\n\n\n\n# service: backend-api\n\n# provider:\n#   name: aws\n#   runtime: nodejs14.x\n#   stage: dev\n#   region: us-east-1\n\n# functions:\n#   createBusiness:\n#     handler: handler.createBusiness\n#     events:\n#       - http:\n#           path: api/business-detail\n#           method: post\n\n#   getBusiness:\n#     handler: handler.getBusiness\n#     events:\n#       - http:\n#           path: api/business-detail/{id}\n#           method: get\n\n#   createBankDetails:\n#     handler: handler.createBankDetails\n#     events:\n#       - http:\n#           path: api/bank-details\n#           method: post\n\n#   getBankDetails:\n#     handler: handler.getBankDetails\n#     events:\n#       - http:\n#           path: api/bank-details/{id}\n#           method: get\n\n# plugins:\n#   - serverless-offline\n\n\n\n\n\n\n\n\nservice: backend-api\nfunctions:\n  createBusiness:\n    handler: handler.createBusiness\n    events:\n      - http:\n          path: api/business-detail\n          method: post\n\n  getBusiness:\n    handler: handler.getBusiness\n    events:\n      - http:\n          path: api/business-detail/{id}\n          method: get\n\n  createBankDetails:\n    handler: handler.createBankDetails\n    events:\n      - http:\n          path: api/bank-details\n          method: post\n\n  getBankDetails:\n    handler: handler.getBankDetails\n    events:\n      - http:\n          path: api/bank-details/{id}\n          method: get\n\n  createCompanyDetails:\n    handler: handler.createCompanyDetails\n    events:\n      - http:\n          path: api/company-details\n          method: post\n\n  getCompanyDetails:\n    handler: handler.getCompanyDetails\n    events:\n      - http:\n          path: api/company-details/{id}\n          method: get\n\n  createTradingDetails:\n    handler: handler.createTradingDetails\n    events:\n      - http:\n          path: api/trading-details\n          method: post\n\n  getTradingDetails:\n    handler: handler.getTradingDetails\n    events:\n      - http:\n          path: api/trading-details/{id}\n          method: get\n",
+    "serviceRawFile": "# service: backend-api\n\n# provider:\n#   name: aws\n#   runtime: nodejs14.x\n#   stage: dev\n#   region: us-east-1\n\n# functions:\n#   createBusiness:\n#     handler: handler.createBusiness  # Ensure this is pointing to your handler.js\n#     events:\n#       - http:\n#           path: api/business-detail\n#           method: post\n\n#   getBusiness:\n#     handler: handler.getBusiness  # Ensure this is pointing to your handler.js\n#     events:\n#       - http:\n#           path: api/business-detail/{id}\n#           method: get\n\n# plugins:\n#   - serverless-offline\n\n\n\n\n\n\n# service: backend-api\n\n# provider:\n#   name: aws\n#   runtime: nodejs14.x\n#   stage: dev\n#   region: us-east-1\n\n# functions:\n#   createBusiness:\n#     handler: handler.createBusiness\n#     events:\n#       - http:\n#           path: api/business-detail\n#           method: post\n\n#   getBusiness:\n#     handler: handler.getBusiness\n#     events:\n#       - http:\n#           path: api/business-detail/{id}\n#           method: get\n\n#   createBankDetails:\n#     handler: handler.createBankDetails\n#     events:\n#       - http:\n#           path: api/bank-details\n#           method: post\n\n#   getBankDetails:\n#     handler: handler.getBankDetails\n#     events:\n#       - http:\n#           path: api/bank-details/{id}\n#           method: get\n\n# plugins:\n#   - serverless-offline\n\n\n\n\n\n\n\n\nservice: backend-api\n\nfunctions:\n  createBusiness:\n    handler: src/service/businessService.createBusiness\n    events:\n      - http:\n          path: api/business-details\n          method: post\n\n  getBusiness:\n    handler: src/service/businessService.getBusiness\n    events:\n      - http:\n          path: api/business-details/{id}\n          method: get\n\n  createBankDetails:\n    handler: handler.createBankDetails\n    events:\n      - http:\n          path: api/bank-details\n          method: post\n\n  getBankDetails:\n    handler: handler.getBankDetails\n    events:\n      - http:\n          path: api/bank-details/{id}\n          method: get\n\n  createCompanyDetails:\n    handler: handler.createCompanyDetails\n    events:\n      - http:\n          path: api/company-details\n          method: post\n\n  getCompanyDetails:\n    handler: handler.getCompanyDetails\n    events:\n      - http:\n          path: api/company-details/{id}\n          method: get\n\n  createTradingDetails:\n    handler: handler.createTradingDetails\n    events:\n      - http:\n          path: api/trading-details\n          method: post\n\n  getTradingDetails:\n    handler: handler.getTradingDetails\n    events:\n      - http:\n          path: api/trading-details/{id}\n          method: get\n\nplugins:\n  - serverless-offline\n",
     "command": [
-      "offline",
-      "start"
+      "offline"
     ],
     "options": {},
     "serviceProviderAwsCfStackId": null,
