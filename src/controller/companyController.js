@@ -35,6 +35,8 @@ exports.createCompanyDetails = async (event) => {
       town: body.town,
       county: body.county,
       country: body.country,
+      documentName: body.documentName,
+      documentType: body.documentType,
       flag: body.flag,
     });
 

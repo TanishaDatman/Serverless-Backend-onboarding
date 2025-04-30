@@ -23,6 +23,8 @@ exports.createBankDetails = async (event) => {
       sortCode: body.sortCode,
       accountNumber: body.accountNumber,
       confirmAccountNumber: body.confirmAccountNumber,
+      documentName: body.documentName,
+      documentType: body.documentType,
       flag: body.flag,
     });
 

@@ -25,10 +25,10 @@ const Bank = new EntitySchema({
       type: 'varchar', 
       nullable: false 
     },
-    // document: { 
-    //   type: 'text', 
-    //   nullable: true 
-    // }, // For storing the bank statement URL
+    document: { 
+      type: 'json', 
+      nullable: true, 
+    },
     flag: { 
       type: 'int', 
       nullable: true, 

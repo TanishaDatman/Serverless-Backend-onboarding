@@ -61,6 +61,10 @@ const Company = new EntitySchema({
       type: 'varchar', 
       nullable: true 
     },
+    document: { 
+      type: 'json', 
+      nullable: true, 
+    },
     flag: { 
       type: 'int', 
       nullable: true, 

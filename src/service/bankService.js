@@ -11,6 +11,10 @@ exports.createBankDetails = async (data) => {
     sortCode: data.sortCode,
     accountNumber: data.accountNumber,
     confirmAccountNumber: data.confirmAccountNumber,
+    document: {
+      name: data.documentName,  // Make sure 'name' exists in the incoming data
+      type: data.documentType   // Make sure 'type' exists in the incoming data
+    },
     flag: data.flag,
   });
 

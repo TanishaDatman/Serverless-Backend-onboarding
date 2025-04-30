@@ -35,6 +35,24 @@ const bankSchema = Joi.object({
       'any.required': 'Confirm account number is required.',
     }),
 
+    documentName: Joi.string()
+        // .required()
+        .optional()
+        .messages({
+          'string.base': 'Document name must be a string.',
+          'any.required': 'Document name is required.',
+        }),
+    
+      documentType: Joi.string()
+        // .valid('png', 'jpg', 'pdf', 'docx') // Add other file types as required
+        // .required()
+        .optional()
+        .messages({
+        //   'string.base': 'Document type must be a string.',
+          'any.required': 'Document type is required.',
+          'any.only': 'Document type must be one of the following: png, jpg, pdf, docx.',
+        }),
+
   flag: Joi.number()
     .integer()
     .min(0)

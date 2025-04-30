@@ -3,6 +3,8 @@ const { createAppDataSource } = require("../db/dbconn");
 
 // Create Company Details
 exports.createCompanyDetails = async (data) => {
+  console.log("company----->",data);
+  
   const AppDataSource = createAppDataSource();
   const companyDetailsRepo = AppDataSource.getRepository(Company);
 
@@ -20,6 +22,10 @@ exports.createCompanyDetails = async (data) => {
     town: data.town,
     county: data.county,
     country: data.country,
+    document: {
+      name: data.documentName,  // Make sure 'name' exists in the incoming data
+      type: data.documentType   // Make sure 'type' exists in the incoming data
+    },
     flag: data.flag,
   });
 
