@@ -14,7 +14,7 @@ const validateAndRespond = (schema, data) => {
     return {
       statusCode: 400,
       body: JSON.stringify({
-        message: 'Invalid input data',
+        message: 'Invalid input data error from joi ',
         details: validationDetails,
       }),
     };

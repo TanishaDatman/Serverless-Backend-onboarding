@@ -3,6 +3,7 @@ const { createAppDataSource } = require("../db/dbconn");
 
 // Create Business
 exports.createBusiness = async (data) => {
+  console.log("Inside business service")
   const AppDataSource = createAppDataSource();
   const businessRepo = AppDataSource.getRepository(Business);
 

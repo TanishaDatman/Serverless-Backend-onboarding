@@ -10,8 +10,8 @@ exports.createTradingDetails = async (event) => {
 
     const body = JSON.parse(event.body);
 
-    const validationResponse = validateAndRespond(tradingSchema, body);
-    if (validationResponse) return validationResponse; // If validation fails, return the response
+    // const validationResponse = validateAndRespond(tradingSchema, body);
+    // if (validationResponse) return validationResponse; // If validation fails, return the response
 
     await initDatabase();
     await initializeDataSource();

@@ -19,11 +19,11 @@ const bankSchema = Joi.object({
       'any.required': 'Sort code is required.',
     }),
 
-  accountNumber: Joi.string()
-    .pattern(/^\d{10}$/) // Expecting a 10-digit number format
+    accountNumber: Joi.string()
+    .pattern(/^\d{8,}$/) // Minimum 8 digits
     .required()
     .messages({
-      'string.pattern.base': 'Account number must be exactly 10 digits.',
+      'string.pattern.base': 'Account number must be at least 8 digits.',
       'any.required': 'Account number is required.',
     }),
 

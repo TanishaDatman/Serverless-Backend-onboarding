@@ -27,11 +27,12 @@ const businessSchema = Joi.object({
     }),
 
   dob: Joi.string()
-    .pattern(/^\d{4}-\d{2}-\d{2}$/) // Expecting date in format YYYY-MM-DD
+    // .pattern(/^\d{4}-\d{2}-\d{2}$/) // Expecting date in format YYYY-MM-DD
     .optional()
-    .messages({
-      'string.pattern.base': 'Date of birth must be in YYYY-MM-DD format.',
-    }),
+    // .messages({
+    //   'string': 'Date of birth must be correct.',
+    // })
+    ,
 
   nationality: Joi.string()
     .max(100)
