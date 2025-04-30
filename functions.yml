@@ -1,0 +1,55 @@
+createBusiness:
+  handler: handler.createBusiness
+  events:
+    - http:
+        path: api/business-details
+        method: post
+
+getBusiness:
+  handler: handler.getBusiness
+  events:
+    - http:
+        path: api/business-details/{id}
+        method: get
+
+createBankDetails:
+  handler: handler.createBankDetails
+  events:
+    - http:
+        path: api/bank-details
+        method: post
+
+getBankDetails:
+  handler: handler.getBankDetails
+  events:
+    - http:
+        path: api/bank-details/{id}
+        method: get
+
+createCompanyDetails:
+  handler: handler.createCompanyDetails
+  events:
+    - http:
+        path: api/company-details
+        method: post
+
+getCompanyDetails:
+  handler: handler.getCompanyDetails
+  events:
+    - http:
+        path: api/company-details/{id}
+        method: get
+
+createTradingDetails:
+  handler: handler.createTradingDetails
+  events:
+    - http:
+        path: api/trading-details
+        method: post
+
+getTradingDetails:
+  handler: handler.getTradingDetails
+  events:
+    - http:
+        path: api/trading-details/{id}
+        method: get
