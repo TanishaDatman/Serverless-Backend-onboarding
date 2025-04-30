@@ -3,6 +3,9 @@ const businessService = require("../service/businessService");
 const {businessSchema}=require('../Joi/validateBusiness')
 const {validateAndRespond}=require('../helper/validate')
 
+// await new Promise((resolve) => setTimeout(resolve, 30000)); 
+
+
 // Create Business
 exports.createBusiness = async (event) => {
   try {
@@ -50,6 +53,8 @@ exports.createBusiness = async (event) => {
     };
   }
 };
+
+  
 
 // Get Business by ID
 exports.getBusiness = async (event) => {

@@ -3,6 +3,7 @@ service: backend-api
 provider:
   name: aws
   runtime: nodejs18.x
+  timeout: 29
 
 functions: ${file(functions.yml)}
 
