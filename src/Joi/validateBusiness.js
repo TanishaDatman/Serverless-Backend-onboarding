@@ -49,7 +49,7 @@ const businessSchema = Joi.object({
     }),
 
   phnno: Joi.string()
-    .pattern(/^\d{10}$/) // Expecting a 10-digit phone number
+    .pattern(/^\d{10}$/) 
     .optional()
     .messages({
       'string.pattern.base': 'Phone number must be exactly 10 digits.',

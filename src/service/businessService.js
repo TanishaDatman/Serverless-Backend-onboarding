@@ -36,7 +36,6 @@ exports.createBusiness = async (data) => {
   const AppDataSource = createAppDataSource();
   const businessRepo = AppDataSource.getRepository(Business);
 
-  // Ensure the document field has the required structure
   const business = businessRepo.create({
     title: data.title,
     first_name: data.first_name,
@@ -52,8 +51,8 @@ exports.createBusiness = async (data) => {
     county: data.county,
     country: data.country,
     document: {
-      name: data.documentName,  // Make sure 'name' exists in the incoming data
-      type: data.documentType   // Make sure 'type' exists in the incoming data
+      name: data.documentName,  
+      type: data.documentType   
     },
     flag: data.flag,
   });
