@@ -19,6 +19,8 @@
     "dotenv": "^16.5.0",
     "joi": "^17.13.3",
     "mysql2": "^3.14.0",
+    "sequelize": "^6.37.7",
+    "sequelize-cli": "^6.6.2",
     "typeorm": "^0.3.22"
   },
   "devDependencies": {

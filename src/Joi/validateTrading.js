@@ -11,6 +11,7 @@ const tradingSchema = Joi.object({
 
   postCode: Joi.string()
     .max(20)
+    .allow('')
     .optional()
     .messages({
       'string.max': 'Postcode must not exceed 20 characters.',
@@ -18,6 +19,7 @@ const tradingSchema = Joi.object({
 
   addressLine1: Joi.string()
     .max(100)
+    .allow('')
     .optional()
     .messages({
       'string.max': 'Address line 1 must not exceed 100 characters.',
@@ -25,6 +27,7 @@ const tradingSchema = Joi.object({
 
   addressLine2: Joi.string()
     .max(100)
+    .allow('')
     .optional()
     .messages({
       'string.max': 'Address line 2 must not exceed 100 characters.',
@@ -32,6 +35,7 @@ const tradingSchema = Joi.object({
 
   townCity: Joi.string()
     .max(100)
+    .allow('')
     .optional()
     .messages({
       'string.max': 'Town/City must not exceed 100 characters.',
@@ -39,6 +43,7 @@ const tradingSchema = Joi.object({
 
   county: Joi.string()
     .max(100)
+    .allow('')
     .optional()
     .messages({
       'string.max': 'County must not exceed 100 characters.',
@@ -46,6 +51,7 @@ const tradingSchema = Joi.object({
 
   country: Joi.string()
     .max(100)
+    .allow('')
     .optional()
     .messages({
       'string.max': 'Country must not exceed 100 characters.',
